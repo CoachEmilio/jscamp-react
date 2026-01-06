@@ -1,0 +1,10 @@
+[
+    { "id": "html", "name": "HTML"},
+    { "id": "css", "name": "CSS" },
+    { "id": "js", "name": "JavaScript" },
+    { "id": "react", "name": "React" },
+    { "id": "vue", "name": "Vue" },
+    { "id": "angular", "name": "Angular" },
+    { "id": "svelte", "name": "Svelte" },
+    { "id": "node", "name": "Node.js" }
+]   
