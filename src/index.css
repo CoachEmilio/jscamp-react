@@ -154,3 +154,22 @@ TechList .tech-item:hover {
 .results-count button:hover {
   text-decoration: underline;
 }
+
+
+/*Landing page*/
+#privacy-policy {
+  color: #f6d13bff;
+  display: 'flex';
+  justify-content: left;
+  text-underline-position: below;
+  padding-left: 2px;
+  text-decoration: underline;
+}
+
+header-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+}

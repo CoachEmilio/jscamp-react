@@ -1,4 +1,5 @@
-export default function TechList({items, onToggleFavorite, favorites}){
+export default function TechList({items, favorites, onToggleFavorite}){
+    console.log('Render: TechList')
     return (
         <ul>
             {items.map((tech) => {

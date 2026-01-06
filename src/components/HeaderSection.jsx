@@ -8,37 +8,48 @@ export default function HeaderSection() {
 
     return (
         <div>
-            <section style={{ padding: '4rem 2rem', backgroundColor: '#f9fafb' }}>
-                <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+                <div id ="header-content">
                     <div>
                         <a href="#" style={{ 
                             display: 'inline-block',
                             padding: '0.5rem 1rem', 
-                            backgroundColor: '#3b82f6', 
+                            backgroundColor: '#ff8c00ff', 
                             color: 'white',
                             borderRadius: '20px',
                             textDecoration: 'none',
                             fontSize: '0.875rem',
                             marginBottom: '1rem'
                         }}>
-                            🎉 We're hiring! Join our remote team →
+                            🎉 We're doing Gymnastics Websites for All →
                         </a>
 
                         <h1 style={{ 
                             fontSize: '3rem', 
                             fontWeight: 'bold',
-                            color: '#111827',
-                            marginBottom: '1.5rem'
+                            color: '#ffffffff',
+                            marginBottom: '1.5rem',
+                            display: 'flex',
+                            justifyContent: 'left'
                         }}>
-                            People who care about your growth
+                            Coach Emilio
                         </h1>
+                        <h2 style={{ 
+                            fontSize: '1.5rem',
+                            color: '#ffffffff',
+                            marginBottom: '1rem',
+                        }}>
+                            Analytics made simple for your profile & business
+                        </h2>
+
                         <p style={{ 
                             fontSize: '1.25rem',
-                            color: '#6b7280',
+                            color: '#ffd900ff',
                             marginBottom: '2rem',
-                            maxWidth: '600px'
+                            maxWidth: '600px',
+                            display: 'flex',
+                            justifyContent: 'left'
                         }}>
-                            Powerful, self-serve product and growth analytics to help you convert, engage, and retain more.
+                            Powerful portfolios, specialists in sports coaches
                         </p>
 
                         <form onSubmit={handleSubmit} style={{ display: 'flex', gap: '1rem', maxWidth: '500px' }}>
@@ -50,7 +61,7 @@ export default function HeaderSection() {
                                 style={{
                                     flex: 1,
                                     padding: '0.75rem 1rem',
-                                    border: '1px solid #d1d5db',
+                                    border: '1px solid #dbd9d1ff',
                                     borderRadius: '8px',
                                     fontSize: '1rem'
                                 }}
@@ -59,7 +70,7 @@ export default function HeaderSection() {
                                 type="submit"
                                 style={{
                                     padding: '0.75rem 1.5rem',
-                                    backgroundColor: '#3b82f6',
+                                    backgroundColor: '#fe7700ff',
                                     color: 'white',
                                     border: 'none',
                                     borderRadius: '8px',
@@ -73,17 +84,16 @@ export default function HeaderSection() {
                         </form>
                         <p style={{ 
                             fontSize: '0.875rem',
-                            color: '#9ca3af',
+                            color: '#afac9cff',
                             marginTop: '0.5rem'
                         }}>
-                            We care about your data in our{" "}
-                            <a href="#" style={{ color: '#3b82f6', textDecoration: 'underline' }}>
+                            We care about your data in our {""}
+                            <a id="privacy-policy" href="#">
                                 privacy policy
                             </a>.
                         </p>
                     </div>
                 </div>
-            </section>
         </div>
     );
 }

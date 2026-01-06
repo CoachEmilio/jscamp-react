@@ -11,7 +11,7 @@ export default function Home() {
 
     return (
         <section>
-            <Title text = "Home"/>
+            <Title text = "Gymnastics Websites for All"/>
 
             { !user && (
                 <button onClick={() => login({ name :'Emilio'})}>
@@ -21,7 +21,7 @@ export default function Home() {
 
             { user && (
                 <>
-                <p>Hola {user.name}</p>
+                <p>Welcome Coach {user.name}</p>
                 <button onClick={logout}>
                     Logout
                 </button>

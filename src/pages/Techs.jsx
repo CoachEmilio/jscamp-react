@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, useCallback } from "react";
 import Title from "../components/Title";
 import TechList from "../components/TechList.jsx";
 import TechListSkeleton from "../components/TechListSkeleton.jsx";
@@ -7,8 +7,9 @@ import { useFavoriteStore } from "../store/useFavoriteStore.js";
 
 
 export default function Techs() {
-    //const { techs, isLoading, error } = useTechs()
     const [forceError, setForceError] = useState(false)
+    const [query, setQuery] = useState('')
+    const [onlyFavorites, setOnlyFavorites] = useState(false)
 
     const { techs, isLoading, error } = useTechs(
         forceError ? '/techs-404.json' : '/techs.json')
@@ -16,8 +17,12 @@ export default function Techs() {
     const favorites = useFavoriteStore((s) => s.favorites)
     const toggleFavorite = useFavoriteStore((s) => s.toggleFavorite)
 
-    const [query, setQuery] = useState('')
-    const [onlyFavorites, setOnlyFavorites] = useState(false)
+    const handleToggleFavorite = useCallback(
+        (id) => {
+            toggleFavorite(id)
+        },
+        [toggleFavorite]
+    )
 
     const filteredTechs = useMemo(() => {
         const q = query.trim().toLowerCase()
@@ -28,8 +33,7 @@ export default function Techs() {
         }
 
         if (q !== '') {
-            list = list.filter((tech) =>
-                tech.name.toLowerCase().includes(q)
+            list = list.filter((tech) => tech.name.toLowerCase().includes(q)
         )
         }
 
@@ -39,6 +43,7 @@ export default function Techs() {
         return [...favs, ...notFavs]
     }, [techs, query, onlyFavorites, favorites])
     
+    console.log('Render: Techs')
     return (
         <section>
             <Title text="Techs"/>
@@ -48,7 +53,7 @@ export default function Techs() {
                     type="text"
                     placeholder="Buscar tech..."
                     value={query}
-                    onChange={(e) => setQuery(e.target.value)}
+                    onChange={(e) => setQuery(e.target.value.trimStart())}
                 />
                 {query.trim() !== '' && (
                     <button onClick={() => setQuery('')}>
@@ -62,7 +67,7 @@ export default function Techs() {
                         checked={onlyFavorites}
                         onChange={(e) => setOnlyFavorites(e.target.checked)}
                     />
-                    Solo favoritos
+                    {' '}Solo favoritos
                 </label>
 
                 <label>
@@ -76,7 +81,7 @@ export default function Techs() {
             </div>
 
             <hr/>
-            {/*estados*/} 
+            
             {isLoading && <TechListSkeleton rows={5} />}
 
             {isLoading && error && (
@@ -93,11 +98,11 @@ export default function Techs() {
                     ) : (
                         <p>No hay resultados para tu búsqueda</p>
                     )
-                ) :(
+                ) : (
                         <TechList 
                             items={filteredTechs}
                             favorites={favorites}
-                            onToggleFavorite={toggleFavorite}
+                            onToggleFavorite={handleToggleFavorite}
                         />
                     )}
                     
